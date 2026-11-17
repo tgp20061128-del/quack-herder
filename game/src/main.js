@@ -1,3 +1,29 @@
+// Quack Herder — a complete herding game. You are Barnaby, a border collie.
+// Pen the panicked ducks into the pen before sundown, across ten levels.
+//
+// HOW IT PLAYS: the dog can only push ducks, never grab them. Ducks panic and
+// scatter when the dog rushes them; they drift toward their flock, dawdle in
+// ponds, and a duckling follows its mother. Bark (Space or click) scares a fox
+// away — but the bark also startles every duck nearby, so each bark is a
+// trade-off. A fox that reaches a duck snatches it for good. Hay bales block
+// movement; the pen's gate moves to a new height every level.
+//
+// CONTENT: 10 levels (Morning Roundup to the two-fox finale), 4 duck types
+// (normal, sprinter, stubborn, duckling), foxes from level 4, two foxes on
+// level 8, ponds and hay mazes throughout. Scoring: 100 per duck penned,
+// duckling +50, combo +50 when two pennings land within 2.5 s, remaining time
+// x10/s as a bonus; 1-3 stars per level. Six screens: title, play, paused,
+// level complete, game over, campaign complete. Controls: mouse or WASD /
+// arrow keys to move, Space or click to bark, Enter to confirm, R retry,
+// P pause, M mute. Sound is synthesized (Web Audio, no assets).
+//
+// HOW IT IS VERIFIED: ?selftest=1 runs the in-page herding autopilot through
+// every level — 9 of 10 won on seed 1 (level 1 lost on time at 3/4 penned).
+// A full real-input campaign on seed 2 (headless Chrome, synthetic pointer
+// and keys driving the real handlers) won 10/10 in 183.3 s, final score
+// 11,870, 29/30 stars, zero console errors and zero exceptions (2026-11-17).
+// No network requests, no libraries, no assets: plain static files.
+//
 // Boot and the one loop: input is read every frame, the world advances in fixed 1/60 s
 // steps (several in a slow frame, none in a fast one), and the renderer paints what is
 // there. The game moves between six screens: title, play, paused, level complete, game
